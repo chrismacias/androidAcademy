@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="350dip"
+    android:layout_gravity="center"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="10dip"
+        android:weightSum="1">
+
+        <EditText
+            android:id="@+id/query"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:hint="Search query"
+            android:inputType="textEmailAddress" />
+
+        <Button
+            android:id="@+id/btnLogin"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dip"
+            android:background="#ff6347"
+            android:onClick="searchWorkshop"
+            android:text="Search"
+            android:textColor="#fff" />
+        <ListView
+            android:id="@+id/workshopList"
+            android:layout_width="fill_parent"
+            android:layout_height="193dp"
+            android:layout_weight="5.28">
+
+
+        </ListView>
+
+        <Button
+            android:id="@+id/btnAddWorkshop"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dip"
+            android:background="#ff6347"
+            android:onClick="addWorkshop"
+            android:text="Add Workshop"
+            android:textColor="#fff" />
+
+    </LinearLayout>
+
+</ScrollView>

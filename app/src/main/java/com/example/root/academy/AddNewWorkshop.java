@@ -87,21 +87,6 @@ public class AddNewWorkshop extends Activity {
         Workshop workshop = new Workshop(title,min,max,startDate);
         try {
 
-            /*Workshop workshop = new Workshop("tadsf", 1, 2, "2015-02-02");
-            Call<Workshop> call = apiService.createWorkshop(workshop);
-            call.enqueue(new Callback<Workshop>() {
-                @Override
-                public void onResponse(Response<Workshop> response,
-                                       Retrofit retrofit) {
-                    int statusCode = response.code();
-                }
-
-                @Override
-                public void onFailure(Throwable t) {
-
-                }
-            });*/
-            //Call<List<Workshop>> call = apiService.createWorkshop(workshop);
             Call call = apiService.createWorkshop(workshop);
             call.enqueue(new Callback() {
                 @Override

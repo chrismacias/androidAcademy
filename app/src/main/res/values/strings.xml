@@ -3,4 +3,9 @@
 
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+
+    <string name="login_title">Log in</string>
+    <string name="pwd">Password</string>
+    <string name="edit_workshop">Edit Workshop</string>
+    <string name="title_activity_add_new_workshop">AddNewWorkshop</string>
 </resources>

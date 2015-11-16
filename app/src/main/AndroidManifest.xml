@@ -22,6 +22,10 @@
             android:name=".AddNewWorkshop"
             android:label="@string/title_activity_add_new_workshop" >
         </activity>
+        <activity
+            android:name=".showWorkshops"
+            android:label="@string/title_activity_show_workshops" >
+        </activity>
     </application>
 
 </manifest>

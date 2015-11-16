@@ -31,7 +31,8 @@
             android:id="@+id/workshopList"
             android:layout_width="fill_parent"
             android:layout_height="388dp"
-            android:layout_weight="5.28">
+            android:layout_weight="5.28"
+            android:clickable="true">
 
 
         </ListView>

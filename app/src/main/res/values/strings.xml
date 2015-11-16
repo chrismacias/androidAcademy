@@ -8,4 +8,10 @@
     <string name="pwd">Password</string>
     <string name="edit_workshop">Edit Workshop</string>
     <string name="title_activity_add_new_workshop">AddNewWorkshop</string>
+    <string name="title_activity_show_workshops">showWorkshops</string>
+    <string name="title">Title: </string>
+    <string name="min">Minimum group count: </string>
+    <string name="max">Maximum group count: </string>
+    <string name="start_date">Starting Date: </string>
+    <string name="workshop">Workshop</string>
 </resources>

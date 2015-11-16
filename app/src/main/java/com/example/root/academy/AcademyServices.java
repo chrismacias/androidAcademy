@@ -18,6 +18,9 @@ public interface AcademyServices {
     @GET("/api/workshops/search/{query}")
     Call<List<Workshop>> searchWorkshop(@Path("query") String query);
 
+    @GET("/api/workshops/{query}")
+    Call<Workshop> getWorkshop(@Path("query") String query);
+
     @GET("/api/workshops/")
     Call<List<Workshop>> getAllWorkshops();
 }

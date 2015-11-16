@@ -1,0 +1,85 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    tools:context="com.example.root.academy.showWorkshops">
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="10dip"
+        android:weightSum="1">
+
+        <TextView android:text="@string/workshop"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:textSize="35sp"
+            android:gravity="center"
+            android:textColor="#ff183a4d"/>
+
+        <TextView android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/title"
+            android:textSize="25sp"
+            android:textStyle="bold" />
+
+        <EditText android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/title"
+            android:textSize="25sp"
+            android:textStyle="bold"/>
+
+        <TextView android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/max"
+            android:textSize="25sp"
+            android:textStyle="bold" />
+
+        <EditText android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            android:id="@+id/maxGroup" />
+
+        <TextView android:text="@string/min"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="25sp"
+            android:textStyle="bold"/>
+
+        <EditText android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            android:id="@+id/minGroup" />
+
+        <TextView android:text="@string/start_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="25sp"
+            android:textStyle="bold"/>
+
+        <EditText android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            android:id="@+id/startDate" />
+
+        <Button
+            android:id="@+id/btnEditWorkshop"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dip"
+            android:background="#ff6347"
+            android:onClick="editWorkshop"
+            android:text="Edit Workshop"
+            android:textColor="#fff" />
+    </LinearLayout>
+
+
+</RelativeLayout>

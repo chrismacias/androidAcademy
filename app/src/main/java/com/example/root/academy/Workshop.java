@@ -37,6 +37,10 @@ public class Workshop {
         this.id = Integer.toString(id);
     }
 
+    public void setId(String id) {
+        this.id = id;
+    }
+
     public String getTitle() {
         return title;
     }

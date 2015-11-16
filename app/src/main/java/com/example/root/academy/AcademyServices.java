@@ -1,11 +1,15 @@
 package com.example.root.academy;
 
+import org.springframework.http.ResponseEntity;
+
 import java.util.List;
 
 import retrofit.Call;
 import retrofit.http.Body;
+import retrofit.http.DELETE;
 import retrofit.http.GET;
 import retrofit.http.POST;
+import retrofit.http.PUT;
 import retrofit.http.Path;
 
 /**
@@ -23,4 +27,10 @@ public interface AcademyServices {
 
     @GET("/api/workshops/")
     Call<List<Workshop>> getAllWorkshops();
+
+    @PUT("/api/workshops/")
+    Call<Workshop> updateWorkshop(@Body Workshop workshop);
+
+    @DELETE("/api/workshops/{id}")
+    Call<ResponseEntity> deleteWorkshop(@Path("id") String id);
 }

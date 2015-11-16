@@ -1,14 +1,18 @@
 package com.example.root.academy;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+
+import org.springframework.http.ResponseEntity;
 
 import retrofit.Call;
 import retrofit.Callback;
@@ -19,10 +23,12 @@ import retrofit.Retrofit;
 
 public class showWorkshops extends Activity {
 
-    EditText titleET;
-    EditText minET;
-    EditText maxET;
-    EditText startDateDP;
+    private TextView id;
+    private EditText titleET;
+    private EditText minET;
+    private EditText maxET;
+    private EditText startDateDP;
+    private String workshopId;
 
     Gson gson;
     Retrofit retrofit;
@@ -44,6 +50,7 @@ public class showWorkshops extends Activity {
         apiService =
                 retrofit.create(AcademyServices.class);
 
+        id = (TextView)findViewById(R.id.id);
         titleET  = (EditText)findViewById(R.id.title);
         minET = (EditText)findViewById(R.id.minGroup);
         maxET = (EditText)findViewById(R.id.maxGroup);
@@ -101,6 +108,9 @@ public class showWorkshops extends Activity {
     }
 
     private void populateEditText(Workshop workshop) {
+        workshopId = workshop.getId();
+
+        id.setText(workshopId);
         titleET.setText(workshop.getTitle());
         minET.setText(Integer.toString(workshop.getMin()));
         maxET.setText(Integer.toString(workshop.getMax()));
@@ -108,6 +118,58 @@ public class showWorkshops extends Activity {
     }
 
     public void editWorkshop(View view){
+        Workshop workshop = new Workshop();
+        workshop.setId(id.getText().toString());
+        workshop.setTitle(titleET.getText().toString());
+        workshop.setMin(Integer.parseInt(minET.getText().toString()));
+        workshop.setMax(Integer.parseInt(maxET.getText().toString()));
+        workshop.setStartDate(startDateDP.getText().toString());
+        Call<Workshop> call = apiService.updateWorkshop(workshop);
+        call.enqueue(new Callback<Workshop>() {
+            @Override
+            public void onResponse(Response<Workshop> response,
+                                   Retrofit retrofit) {
+                int statusCode = response.code();
+                if (response.body() != null) {
+                    Workshop workshop = response.body();
 
+                    if (workshop != null) {
+                        populateEditText(workshop);
+                    }
+                }
+
+            }
+
+            @Override
+            public void onFailure(Throwable t) {
+
+            }
+        });
+        goToMain();
+    }
+
+    public void deleteWorkshop(View view){
+        Call<ResponseEntity> call = apiService.deleteWorkshop(workshopId);
+        call.enqueue(new Callback<ResponseEntity>() {
+            @Override
+            public void onResponse(Response<ResponseEntity> response,
+                                   Retrofit retrofit) {
+                int statusCode = response.code();
+                if (statusCode == 200) {
+                    goToMain();
+                }
+            }
+
+            @Override
+            public void onFailure(Throwable t) {
+
+            }
+        });
+
+    }
+
+    private void goToMain() {
+        Intent i = new Intent(showWorkshops.this, MainActivity.class);
+        startActivity(i);
     }
 }
